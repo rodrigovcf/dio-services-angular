@@ -7,5 +7,11 @@ export type PokemonData = {
     front_default: string
   }
 
-  types:[]
+  types:{
+    slot:number
+    type:{
+      name:string
+      url:string
+    }
+  }[]
 }

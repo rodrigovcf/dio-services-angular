@@ -11,9 +11,9 @@
   <div class="card__stats">
     <span
       class="card__stats__type"
-      *ngFor="let type of atributesTypes"
+      *ngFor="let t of pokemon.types"
     >
-        {{type}}
+        {{t.type.name}}
     </span>
   </div>
 
