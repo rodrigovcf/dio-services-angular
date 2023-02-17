@@ -3,6 +3,7 @@
   esse Service pode ser injetado em um outro componente que utilizará
   de suas funcionalidades.
 */
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {} from 'src/environments/environment';
 import { environment } from 'src/environments/environment';
@@ -12,13 +13,15 @@ import { environment } from 'src/environments/environment';
 })
 export class PokemonService {
   private baseURL:string = ""
+  private pokeData:any
 
-  constructor() {
+  constructor(private http:HttpClient){
     //Inicializando a baseURL por meio da pokeApi contida no environment
     this.baseURL = environment.pokeApi
   }
 
   getPokemon(pokemonName:string){
-    console.log(this.baseURL)
+    this.pokeData = this.http.get(`${this.baseURL}${pokemonName}`)
+    console.log(this.pokeData)
   }
 }
